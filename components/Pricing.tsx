@@ -68,7 +68,7 @@ export default function Pricing() {
             <span className="text-primary-600 block">Pricing</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Start free and upgrade when you're ready to unlock the full potential of AI-powered knowledge management.
+            Start free and upgrade when you&apos;re ready to unlock the full potential of AI-powered knowledge management.
           </p>
         </motion.div>
 
@@ -115,7 +115,7 @@ export default function Pricing() {
                 <div className="space-y-4">
                   <h4 className="font-semibold text-gray-900 flex items-center gap-2">
                     <Check className="w-5 h-5 text-green-500" />
-                    What's included:
+                    What&apos;s included:
                   </h4>
                   <ul className="space-y-3">
                     {plan.features.map((feature, featureIndex) => (
@@ -189,7 +189,7 @@ export default function Pricing() {
               <h3 className="text-xl font-semibold text-gray-900">Upgrade Anytime</h3>
             </div>
             <p className="text-gray-600 mb-6">
-              Start with our free plan and upgrade when you're ready for advanced AI features and unlimited storage.
+              Start with our free plan and upgrade when you&apos;re ready for advanced AI features and unlimited storage.
               All your data seamlessly transfers over.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

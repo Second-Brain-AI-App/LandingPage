@@ -56,7 +56,7 @@ export default function FAQ() {
             <span className="text-primary-600 block">Questions</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Everything you need to know about Second Brain. Can't find the answer you're looking for?
+            Everything you need to know about Second Brain. Can&apos;t find the answer you&apos;re looking for?
             Feel free to reach out to our support team.
           </p>
         </motion.div>

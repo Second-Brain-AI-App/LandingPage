@@ -45,7 +45,7 @@ export default function Contact() {
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Have questions about Second Brain? Want to provide feedback or request a feature?
-            We'd love to hear from you.
+            We&apos;d love to hear from you.
           </p>
         </motion.div>
 
@@ -61,7 +61,7 @@ export default function Contact() {
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Send us a message</h3>
               <p className="text-gray-600">
-                Fill out the form below and we'll get back to you within 24 hours.
+                Fill out the form below and we&apos;ll get back to you within 24 hours.
               </p>
             </div>
 
@@ -142,7 +142,7 @@ export default function Contact() {
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Other ways to reach us</h3>
               <p className="text-gray-600">
-                Choose the method that works best for you. We're here to help!
+                Choose the method that works best for you. We&apos;re here to help!
               </p>
             </div>
 

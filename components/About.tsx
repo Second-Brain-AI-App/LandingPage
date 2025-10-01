@@ -70,8 +70,8 @@ export default function About() {
                 transition={{ duration: 0.6, delay: 0.3 }}
                 className="text-lg text-gray-600 leading-relaxed"
               >
-                Second Brain is more than a note-taking app. It's an intelligent companion that helps you capture,
-                organize, and rediscover your thoughts using cutting-edge AI technology. Whether you're a researcher,
+                Second Brain is more than a note-taking app. It&apos;s an intelligent companion that helps you capture,
+                organize, and rediscover your thoughts using cutting-edge AI technology. Whether you&apos;re a researcher,
                 student, or creative professional, Second Brain adapts to your workflow.
               </motion.p>
             </div>
