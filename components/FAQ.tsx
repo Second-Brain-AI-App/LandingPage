@@ -1,144 +1,61 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { landingContent } from '@/content/landingContent'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
-import { Plus, Minus } from 'lucide-react'
 
-export default function FAQ() {
-  const [openItem, setOpenItem] = useState<number | null>(0)
+export function FAQ() {
+  const { faq } = landingContent
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
-  const faqs = [
-    {
-      question: 'How does Second Brain protect my privacy?',
-      answer: 'Your privacy is our top priority. All your notes, voice recordings, and personal content are stored locally on your device using SwiftData. Only anonymous embedding vectors are generated through our secure API - your actual content never leaves your device. We use a privacy-first architecture that ensures your thoughts remain yours.'
-    },
-    {
-      question: 'Can I use Second Brain offline?',
-      answer: 'Yes! Second Brain is designed to work seamlessly offline. All your notes, search functionality, and core features work without an internet connection. You only need connectivity for AI-powered insights and when generating embeddings for new content.'
-    },
-    {
-      question: 'What AI features are included in the Pro plan?',
-      answer: 'Pro users get access to advanced AI insights, smart connections between ideas, enhanced search with semantic understanding, automatic topic clustering, and AI-generated summaries. The AI helps you discover patterns and connections in your knowledge that you might have missed.'
-    },
-    {
-      question: 'How accurate is the voice-to-text feature?',
-      answer: 'Our voice-to-text technology achieves over 95% accuracy for clear speech. It works in multiple languages and adapts to your speaking style over time. The Pro version includes enhanced voice processing with better accuracy for technical terms and domain-specific vocabulary.'
-    },
-    {
-      question: 'Can I export my data if I want to switch apps?',
-      answer: 'Absolutely. We believe in data ownership and portability. You can export your entire knowledge base in multiple formats including JSON, Markdown, and PDF. Pro users get additional export options and can set up automated backups to their preferred cloud storage.'
-    },
-    {
-      question: 'Is there a limit to how much I can store?',
-      answer: 'The free plan allows up to 1,000 notes, which is perfect for getting started. Pro users get unlimited storage for notes, voice recordings, and images. All storage is local to your device, so the only limit is your device\'s available space.'
-    }
-  ]
-
-  const toggleItem = (index: number) => {
-    setOpenItem(openItem === index ? null : index)
+  const toggle = (index: number) => {
+    setOpenIndex((prev) => (prev === index ? null : index))
   }
 
   return (
-    <section className="py-24 bg-gray-50">
-      <div className="section-container">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center space-y-4 mb-16"
-        >
-          <span className="bg-primary-100 text-primary-800 text-sm font-semibold px-3 py-1 rounded-full">
-            FAQ
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Frequently Asked
-            <span className="text-primary-600 block">Questions</span>
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Everything you need to know about Second Brain. Can&apos;t find the answer you&apos;re looking for?
-            Feel free to reach out to our support team.
-          </p>
-        </motion.div>
-
-        <div className="max-w-3xl mx-auto">
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
-              >
+    <section id="faq" className="bg-white py-24 scroll-mt-32">
+      <div className="mx-auto max-w-[768px] px-4 sm:px-6">
+        <div className="text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-700">{faq.label}</p>
+          <h2 className="mt-4 text-4xl font-bold text-gray-900 sm:text-5xl">{faq.headline}</h2>
+        </div>
+        <div className="mt-12 space-y-4">
+          {faq.items.map((item, index) => {
+            const isOpen = openIndex === index
+            return (
+              <div key={item.question} className="rounded-2xl border border-gray-100">
                 <button
-                  onClick={() => toggleItem(index)}
-                  className="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-inset"
-                  aria-expanded={openItem === index}
-                  aria-controls={`faq-answer-${index}`}
+                  type="button"
+                  className="flex w-full items-center justify-between px-6 py-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500"
+                  onClick={() => toggle(index)}
                 >
-                  <span className="text-lg font-semibold text-gray-900 pr-4">
-                    {faq.question}
-                  </span>
-                  <motion.div
-                    animate={{ rotate: openItem === index ? 45 : 0 }}
-                    transition={{ duration: 0.2 }}
-                    className="flex-shrink-0 w-6 h-6 text-primary-600"
+                  <span className="text-lg font-semibold text-gray-900">{item.question}</span>
+                  <span
+                    className={`ml-4 flex h-10 w-10 items-center justify-center rounded-2xl border text-xl transition ${
+                      isOpen
+                        ? 'border-amber-200 bg-amber-100 text-amber-700'
+                        : 'border-gray-100 bg-gray-50 text-gray-500'
+                    }`}
+                    aria-hidden="true"
                   >
-                    <Plus className="w-6 h-6" />
-                  </motion.div>
+                    {isOpen ? '-' : '+'}
+                  </span>
                 </button>
-
-                <AnimatePresence>
-                  {openItem === index && (
+                <AnimatePresence initial={false}>
+                  {isOpen && (
                     <motion.div
-                      id={`faq-answer-${index}`}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: 'easeInOut' }}
-                      className="overflow-hidden"
+                      transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 pb-6">
-                        <div className="pt-2 border-t border-gray-100">
-                          <p className="text-gray-600 leading-relaxed pt-4">
-                            {faq.answer}
-                          </p>
-                        </div>
-                      </div>
+                      <div className="px-6 pb-6 text-base text-gray-600">{item.answer}</div>
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Contact CTA */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-center mt-12"
-          >
-            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">
-                Still have questions?
-              </h3>
-              <p className="text-gray-600 mb-6">
-                Our support team is here to help you get the most out of Second Brain.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="btn-secondary">
-                  Browse Documentation
-                </button>
-                <button className="btn-primary">
-                  Contact Support
-                </button>
               </div>
-            </div>
-          </motion.div>
+            )
+          })}
         </div>
       </div>
     </section>

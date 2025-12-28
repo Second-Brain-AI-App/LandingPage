@@ -1,135 +1,120 @@
 'use client'
 
+import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { Download, Smartphone } from 'lucide-react'
+import { landingContent } from '@/content/landingContent'
+import { MagneticButton } from '@/components/MagneticButton'
 
-export default function Hero() {
+const headlineVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: index * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  }),
+}
+
+export function Hero() {
+  const { hero } = landingContent
+
   return (
-    <section className="gradient-bg min-h-screen flex items-center">
-      <div className="section-container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <motion.div
+    <section id="top" className="relative flex min-h-screen overflow-hidden bg-warm-gradient pb-12 pt-24">
+      <div className="absolute inset-x-0 top-0 -z-10 h-[600px] bg-gradient-to-b from-amber-100/40 to-transparent" aria-hidden="true" />
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-12 px-4 sm:px-6 lg:flex-row lg:items-center lg:gap-8 my-auto">
+        {/* Left side - 40% */}
+        <div className="w-full space-y-8 lg:w-[40%]">
+          <motion.p
+            className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-700"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="space-y-8"
           >
-            <div className="space-y-4">
+            {hero.label}
+          </motion.p>
+          <div className="space-y-2">
+            {hero.headline.map((line, index) => (
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight"
+                key={line}
+                custom={index}
+                initial="hidden"
+                animate="visible"
+                variants={headlineVariants}
+                className={`text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl ${
+                  index === 1 ? 'bg-text-gradient bg-clip-text text-transparent' : 'text-gray-900'
+                }`}
               >
-                Your Personal
-                <span className="text-primary-600 block">Knowledge Assistant</span>
+                {line}
               </motion.h1>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-xl text-gray-600 leading-relaxed max-w-lg"
-              >
-                Transform your thoughts into organized, searchable knowledge with AI-powered insights.
-                Capture ideas with voice, text, and images.
-              </motion.p>
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4"
-            >
-              <button className="btn-primary flex items-center justify-center gap-2 text-lg">
-                <Download className="w-5 h-5" />
-                Download for iOS
-              </button>
-              <button className="btn-secondary flex items-center justify-center gap-2 text-lg">
-                <Smartphone className="w-5 h-5" />
-                View Demo
-              </button>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center gap-4 text-sm text-gray-500"
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span>Free to start</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-                <span>Privacy-first</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-                <span>AI-powered</span>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right Column - App Screenshot/Mockup */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
+            ))}
+          </div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="text-lg text-gray-600 sm:text-xl"
           >
-            <div className="relative">
-              {/* Phone Frame */}
-              <div className="w-80 h-[600px] bg-gray-900 rounded-[3rem] p-2 shadow-2xl">
-                <div className="w-full h-full bg-white rounded-[2.5rem] overflow-hidden relative">
-                  {/* Status Bar */}
-                  <div className="h-12 bg-gray-50 flex items-center justify-between px-6 text-sm font-medium text-gray-900">
-                    <span>9:41</span>
-                    <div className="flex items-center gap-1">
-                      <div className="w-4 h-2 border border-gray-400 rounded-sm">
-                        <div className="w-3 h-1 bg-green-500 rounded-sm"></div>
-                      </div>
-                    </div>
-                  </div>
+            {hero.subheadline}
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.6 }}
+            className="flex flex-col gap-4 sm:flex-row sm:items-center"
+          >
+            <MagneticButton href={hero.primaryCta.href}>{hero.primaryCta.label}</MagneticButton>
+          </motion.div>
+        </div>
 
-                  {/* App Content Placeholder */}
-                  <div className="p-6 space-y-6">
-                    <div className="text-center space-y-2">
-                      <div className="w-16 h-16 bg-primary-600 rounded-2xl mx-auto flex items-center justify-center">
-                        <div className="w-8 h-8 bg-white rounded-lg"></div>
-                      </div>
-                      <h3 className="font-semibold text-gray-900">Second Brain</h3>
-                    </div>
-
-                    <div className="space-y-3">
-                      <div className="h-12 bg-gray-100 rounded-xl"></div>
-                      <div className="h-20 bg-gradient-to-r from-primary-100 to-primary-50 rounded-xl"></div>
-                      <div className="h-16 bg-gray-100 rounded-xl"></div>
-                      <div className="h-24 bg-gradient-to-r from-secondary-100 to-secondary-50 rounded-xl"></div>
-                    </div>
+        {/* Right side - 60% */}
+        <div className="w-full lg:w-[60%]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="flex flex-col items-center gap-8 sm:flex-row sm:justify-center lg:gap-8"
+          >
+            {/* Phone 1 - Capture */}
+            <div className="flex flex-col items-center">
+              <div className="relative w-[220px] sm:w-[300px] lg:w-[360px]">
+                {/* Phone frame */}
+                <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-gray-900 bg-gray-900 shadow-2xl">
+                  {/* Screen */}
+                  <div className="relative aspect-[9/19.5] w-full overflow-hidden bg-white">
+                    <Image
+                      src={hero.phones.capture.gif}
+                      alt="Capture demo"
+                      fill
+                      className="object-cover object-top"
+                      unoptimized
+                    />
                   </div>
+                  {/* Notch */}
+                  <div className="absolute left-1/2 top-2 h-6 w-24 -translate-x-1/2 rounded-full bg-gray-900" />
                 </div>
               </div>
+              <p className="mt-4 text-base font-semibold text-gray-700 sm:text-lg">{hero.phones.capture.label}</p>
+            </div>
 
-              {/* Floating Elements */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -top-4 -left-4 w-16 h-16 bg-primary-500 rounded-2xl shadow-lg flex items-center justify-center"
-              >
-                <span className="text-white text-2xl">🧠</span>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, delay: 1 }}
-                className="absolute -bottom-4 -right-4 w-12 h-12 bg-secondary-500 rounded-xl shadow-lg flex items-center justify-center"
-              >
-                <span className="text-white text-xl">✨</span>
-              </motion.div>
+            {/* Phone 2 - Recall */}
+            <div className="flex flex-col items-center">
+              <div className="relative w-[220px] sm:w-[300px] lg:w-[360px]">
+                {/* Phone frame */}
+                <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-gray-900 bg-gray-900 shadow-2xl">
+                  {/* Screen */}
+                  <div className="relative aspect-[9/19.5] w-full overflow-hidden bg-white">
+                    <Image
+                      src={hero.phones.recall.gif}
+                      alt="Recall demo"
+                      fill
+                      className="object-cover object-top"
+                      unoptimized
+                    />
+                  </div>
+                  {/* Notch */}
+                  <div className="absolute left-1/2 top-2 h-6 w-24 -translate-x-1/2 rounded-full bg-gray-900" />
+                </div>
+              </div>
+              <p className="mt-4 text-base font-semibold text-gray-700 sm:text-lg">{hero.phones.recall.label}</p>
             </div>
           </motion.div>
         </div>
