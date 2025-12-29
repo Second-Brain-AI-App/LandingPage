@@ -36,7 +36,7 @@ function SearchInput({ text }: { text: string }) {
 export function UseCasesCarousel() {
   const { useCases } = landingContent
   const [activeIndex, setActiveIndex] = useState(0)
-  const [typedText, setTypedText] = useState(useCases.cases[0].input)
+  const [typedText, setTypedText] = useState<string>(useCases.cases[0].input)
 
   useEffect(() => {
     const activeCase = useCases.cases[activeIndex]

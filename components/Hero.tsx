@@ -1,9 +1,9 @@
 'use client'
 
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { landingContent } from '@/content/landingContent'
 import { MagneticButton } from '@/components/MagneticButton'
+import { PhoneFrame, useHeroSequence } from '@/components/hero-animation'
 
 const headlineVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -16,6 +16,7 @@ const headlineVariants = {
 
 export function Hero() {
   const { hero } = landingContent
+  const { left, right } = useHeroSequence()
 
   return (
     <section id="top" className="relative flex min-h-screen overflow-hidden bg-warm-gradient pb-12 pt-24">
@@ -75,46 +76,18 @@ export function Hero() {
           >
             {/* Phone 1 - Capture */}
             <div className="flex flex-col items-center">
-              <div className="relative w-[220px] sm:w-[300px] lg:w-[360px]">
-                {/* Phone frame */}
-                <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-gray-900 bg-gray-900 shadow-2xl">
-                  {/* Screen */}
-                  <div className="relative aspect-[9/19.5] w-full overflow-hidden bg-white">
-                    <Image
-                      src={hero.phones.capture.gif}
-                      alt="Capture demo"
-                      fill
-                      className="object-cover object-top"
-                      unoptimized
-                    />
-                  </div>
-                  {/* Notch */}
-                  <div className="absolute left-1/2 top-2 h-6 w-24 -translate-x-1/2 rounded-full bg-gray-900" />
-                </div>
-              </div>
-              <p className="mt-4 text-base font-semibold text-gray-700 sm:text-lg">{hero.phones.capture.label}</p>
+              <PhoneFrame className="w-[160px] sm:w-[240px] lg:w-[280px]">
+                {left}
+              </PhoneFrame>
+              <p className="mt-4 text-sm font-medium text-gray-500 sm:text-base">{hero.phones.capture.label}</p>
             </div>
 
             {/* Phone 2 - Recall */}
             <div className="flex flex-col items-center">
-              <div className="relative w-[220px] sm:w-[300px] lg:w-[360px]">
-                {/* Phone frame */}
-                <div className="relative overflow-hidden rounded-[2.5rem] border-[10px] border-gray-900 bg-gray-900 shadow-2xl">
-                  {/* Screen */}
-                  <div className="relative aspect-[9/19.5] w-full overflow-hidden bg-white">
-                    <Image
-                      src={hero.phones.recall.gif}
-                      alt="Recall demo"
-                      fill
-                      className="object-cover object-top"
-                      unoptimized
-                    />
-                  </div>
-                  {/* Notch */}
-                  <div className="absolute left-1/2 top-2 h-6 w-24 -translate-x-1/2 rounded-full bg-gray-900" />
-                </div>
-              </div>
-              <p className="mt-4 text-base font-semibold text-gray-700 sm:text-lg">{hero.phones.recall.label}</p>
+              <PhoneFrame className="w-[160px] sm:w-[240px] lg:w-[280px]">
+                {right}
+              </PhoneFrame>
+              <p className="mt-4 text-sm font-medium text-gray-500 sm:text-base">{hero.phones.recall.label}</p>
             </div>
           </motion.div>
         </div>
