@@ -36,7 +36,7 @@ export default function TermsPage() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900">1. Agreement to Terms</h2>
             <p className="mt-4 text-gray-600">
-              These Terms of Service (&quot;Terms&quot;) constitute a binding agreement between you and Kaichen Zhao (&quot;Developer,&quot; &quot;we,&quot; &quot;us&quot;). By downloading, installing, or using Second Brain (&quot;Service,&quot; &quot;App&quot;), you agree to these Terms. If you disagree, do not use the Service.
+              These Terms of Service (&quot;Terms&quot;) constitute a binding agreement between you and Second Brain (&quot;we,&quot; &quot;us&quot;). By downloading, installing, or using Second Brain (&quot;Service,&quot; &quot;App&quot;), you agree to these Terms. If you disagree, do not use the Service.
             </p>
             <p className="mt-4 text-gray-600">
               If using on behalf of an organization, you represent having authority to bind that organization.
@@ -266,8 +266,7 @@ export default function TermsPage() {
             <div className="mt-4 rounded-lg bg-white p-4 text-gray-600">
               <p><strong>Email:</strong> support@2ndbrainai.app</p>
               <p><strong>Website:</strong> 2ndbrainai.app</p>
-              <p><strong>Developer:</strong> Kaichen Zhao</p>
-              <p><strong>Location:</strong> California, USA</p>
+                            <p><strong>Location:</strong> California, USA</p>
             </div>
           </section>
         </div>

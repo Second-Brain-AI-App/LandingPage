@@ -36,7 +36,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold text-gray-900">1. Who We Are</h2>
             <div className="mt-4 space-y-2 text-gray-600">
-              <p><strong>Operator:</strong> Kaichen Zhao (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;)</p>
+              <p><strong>Operator:</strong> Second Brain (&quot;we,&quot; &quot;us,&quot; &quot;our&quot;)</p>
               <p><strong>Website:</strong> 2ndbrainai.app</p>
               <p><strong>Contact:</strong> support@2ndbrainai.app</p>
               <p className="mt-4">
@@ -271,8 +271,7 @@ export default function PrivacyPage() {
               <p><strong>Email:</strong> support@2ndbrainai.app</p>
               <p><strong>Website:</strong> 2ndbrainai.app</p>
               <p><strong>Subject Line:</strong> &quot;Privacy Request&quot;</p>
-              <p><strong>Developer:</strong> Kaichen Zhao</p>
-              <p><strong>Location:</strong> California, USA</p>
+                            <p><strong>Location:</strong> California, USA</p>
             </div>
             <p className="mt-4 text-gray-600">We&apos;ll respond within 30 days.</p>
           </section>
