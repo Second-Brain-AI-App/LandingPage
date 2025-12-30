@@ -19,7 +19,7 @@ export default function PrivacyPage() {
 
         {/* Header */}
         <h1 className="mt-8 text-4xl font-bold text-gray-900">Privacy Policy</h1>
-        <p className="mt-2 text-sm text-gray-500">Effective: January 1, 2025</p>
+        <p className="mt-2 text-sm text-gray-500">Effective: January 1, 2026</p>
         <p className="text-sm text-gray-500">Version: 1.0</p>
 
         {/* Summary */}
@@ -273,14 +273,14 @@ export default function PrivacyPage() {
               <p><strong>Subject Line:</strong> &quot;Privacy Request&quot;</p>
                             <p><strong>Location:</strong> California, USA</p>
             </div>
-            <p className="mt-4 text-gray-600">We&apos;ll respond within 30 days.</p>
+            <p className="mt-4 text-gray-600">We&apos;ll respond within 3 business days.</p>
           </section>
 
           {/* Section 14 */}
           <section>
             <h2 className="text-xl font-semibold text-gray-900">14. Effective Date</h2>
-            <p className="mt-4 text-gray-600">This Privacy Policy is effective as of January 1, 2025.</p>
-            <p className="text-gray-600">Last Updated: January 1, 2025</p>
+            <p className="mt-4 text-gray-600">This Privacy Policy is effective as of January 1, 2026.</p>
+            <p className="text-gray-600">Last Updated: January 1, 2026</p>
             <p className="text-gray-600">Version: 1.0</p>
           </section>
         </div>

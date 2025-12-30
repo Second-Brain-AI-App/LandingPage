@@ -19,7 +19,7 @@ export default function TermsPage() {
 
         {/* Header */}
         <h1 className="mt-8 text-4xl font-bold text-gray-900">Terms of Service</h1>
-        <p className="mt-2 text-sm text-gray-500">Effective: January 1, 2025</p>
+        <p className="mt-2 text-sm text-gray-500">Effective: January 1, 2026</p>
         <p className="text-sm text-gray-500">Version: 1.0</p>
 
         {/* Summary */}
