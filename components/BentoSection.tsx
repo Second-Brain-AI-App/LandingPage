@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Smartphone, Lock, Tag } from 'lucide-react'
 
 const CONTENT = {
   label: 'FEATURES',
@@ -10,17 +11,17 @@ const CONTENT = {
 
 const FEATURES = [
   {
-    icon: '📱',
+    icon: Smartphone,
     title: 'Always one tap away',
     description: 'Widget, Lock Screen, Apple Watch — capture without unlocking.',
   },
   {
-    icon: '🔒',
+    icon: Lock,
     title: 'Private by default',
     description: 'Your memory on your device. AI processes but never stores your content.',
   },
   {
-    icon: '🏷️',
+    icon: Tag,
     title: 'Automatic labels',
     description: 'AI tags everything — people, places, topics. Customize anytime.',
   },
@@ -45,16 +46,21 @@ const itemVariants = {
 }
 
 function FeatureCard({ feature }: { feature: typeof FEATURES[number] }) {
+  const IconComponent = feature.icon
   return (
     <motion.div
       variants={itemVariants}
       className="rounded-2xl bg-gray-50 p-6 md:p-8"
     >
-      <span className="text-3xl">{feature.icon}</span>
-      <h3 className="mt-4 text-lg font-semibold text-gray-900 md:text-xl">
-        {feature.title}
-      </h3>
-      <p className="mt-2 text-sm text-gray-600 md:text-base">
+      <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-amber-100">
+          <IconComponent className="h-5 w-5 text-amber-700" />
+        </div>
+        <h3 className="text-lg font-semibold text-gray-900 md:text-xl">
+          {feature.title}
+        </h3>
+      </div>
+      <p className="mt-3 text-sm text-gray-600 md:text-base">
         {feature.description}
       </p>
     </motion.div>

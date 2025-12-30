@@ -3,6 +3,16 @@
 import { landingContent } from '@/content/landingContent'
 import { motion } from 'framer-motion'
 import type { CSSProperties } from 'react'
+import { Mic, Brain, MessageCircle, RefreshCw, Lock, Shield } from 'lucide-react'
+
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
+  mic: Mic,
+  brain: Brain,
+  messageCircle: MessageCircle,
+  refreshCw: RefreshCw,
+  lock: Lock,
+  shield: Shield,
+}
 
 type WaveStyle = CSSProperties & { '--wave-height'?: string }
 
@@ -79,7 +89,7 @@ function PrivacyDemo({ subtitle }: { subtitle: string }) {
   return (
     <div className="mt-8 flex flex-col items-center text-center text-white">
       <div className="relative flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br from-emerald-500 to-green-600 shadow-glow-green">
-        <span className="text-3xl">🛡️</span>
+        <Shield className="h-10 w-10 text-white" />
       </div>
       <p className="mt-4 max-w-sm text-sm text-gray-300">{subtitle}</p>
     </div>
@@ -133,11 +143,18 @@ export function FeatureGrid() {
               } p-8 shadow-md`}
             >
               <div
-                className={`flex h-14 w-14 items-center justify-center rounded-2xl text-3xl ${
+                className={`flex h-14 w-14 items-center justify-center rounded-2xl ${
                   iconBackgrounds[card.id] ?? 'bg-amber-100 text-amber-700'
                 }`}
               >
-                {card.icon}
+                {iconMap[card.icon] ? (
+                  (() => {
+                    const IconComponent = iconMap[card.icon]
+                    return <IconComponent className="h-7 w-7" />
+                  })()
+                ) : (
+                  <span className="text-3xl">{card.icon}</span>
+                )}
               </div>
               <h3 className={`mt-6 text-2xl font-semibold ${card.tone === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                 {card.title}

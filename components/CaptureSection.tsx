@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight, ChevronDown } from 'lucide-react'
 
 const CONTENT = {
   label: 'CAPTURE',
@@ -105,8 +105,9 @@ function VoiceInputCard({ text }: { text: string }) {
 
 function Arrow() {
   return (
-    <div className="flex items-center justify-center px-2 md:px-4">
-      <ChevronRight className="h-6 w-6 text-amber-600 md:h-7 md:w-7" strokeWidth={2.5} />
+    <div className="flex items-center justify-center py-2 md:py-0 md:px-4">
+      <ChevronDown className="h-6 w-6 text-amber-600 md:hidden" strokeWidth={2.5} />
+      <ChevronRight className="hidden h-7 w-7 text-amber-600 md:block" strokeWidth={2.5} />
     </div>
   )
 }
@@ -183,18 +184,18 @@ function ExampleRow({ example, index }: { example: Example; index: number }) {
   return (
     <motion.div
       variants={rowVariants}
-      className="flex items-center gap-2 md:gap-4"
+      className="flex flex-col items-center md:flex-row md:items-center md:gap-4"
     >
-      {/* Voice card - left */}
-      <div className="w-[55%] md:w-1/2">
+      {/* Voice card - top on mobile, left on desktop */}
+      <div className="w-full md:w-1/2">
         <VoiceInputCard text={example.voice} />
       </div>
 
       {/* Arrow */}
       <Arrow />
 
-      {/* Output card - right */}
-      <div className="w-[40%] md:w-1/2">
+      {/* Output card - bottom on mobile, right on desktop */}
+      <div className="w-full md:w-1/2">
         {example.type === 'action' ? (
           <ActionCard example={example} />
         ) : (

@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Check } from 'lucide-react'
+import { Check, Target, Heart } from 'lucide-react'
 
 const CONTENT = {
   label: 'SMART NUDGES',
@@ -90,8 +90,10 @@ export function SmartNudgeSection() {
             variants={itemVariants}
             className="rounded-2xl bg-gray-50 p-6 md:p-8"
           >
-            <div className="mb-4 flex items-center gap-2">
-              <span className="text-3xl">🎯</span>
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100">
+                <Target className="h-5 w-5 text-purple-700" />
+              </div>
               <h3 className="text-xl font-semibold text-gray-900">SMART</h3>
             </div>
             <p className="mb-6 text-base text-gray-600">
@@ -116,8 +118,10 @@ export function SmartNudgeSection() {
             variants={itemVariants}
             className="rounded-2xl bg-[#FFFBF5] p-6 md:p-8"
           >
-            <div className="mb-4 flex items-center gap-2">
-              <span className="text-3xl">💛</span>
+            <div className="mb-4 flex items-center gap-3">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100">
+                <Heart className="h-5 w-5 text-amber-700" />
+              </div>
               <h3 className="text-xl font-semibold text-gray-900">FRIENDLY</h3>
             </div>
             <div className="space-y-3">

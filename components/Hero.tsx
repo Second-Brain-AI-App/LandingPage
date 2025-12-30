@@ -76,7 +76,7 @@ export function Hero() {
           >
             {/* Phone 1 - Capture */}
             <div className="flex flex-col items-center">
-              <PhoneFrame className="w-[160px] sm:w-[240px] lg:w-[280px]">
+              <PhoneFrame className="w-[280px] sm:w-[240px] lg:w-[280px]">
                 {left}
               </PhoneFrame>
               <p className="mt-4 text-sm font-medium text-gray-500 sm:text-base">{hero.phones.capture.label}</p>
@@ -84,7 +84,7 @@ export function Hero() {
 
             {/* Phone 2 - Recall */}
             <div className="flex flex-col items-center">
-              <PhoneFrame className="w-[160px] sm:w-[240px] lg:w-[280px]">
+              <PhoneFrame className="w-[280px] sm:w-[240px] lg:w-[280px]">
                 {right}
               </PhoneFrame>
               <p className="mt-4 text-sm font-medium text-gray-500 sm:text-base">{hero.phones.recall.label}</p>

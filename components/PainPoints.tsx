@@ -2,6 +2,7 @@
 
 import { landingContent } from '@/content/landingContent'
 import { motion } from 'framer-motion'
+import { Check } from 'lucide-react'
 
 export function PainPoints() {
   const { painPoints } = landingContent
@@ -21,10 +22,8 @@ export function PainPoints() {
               transition={{ delay: index * 0.05 }}
               className="flex items-start gap-3 rounded-2xl bg-white/80 p-4"
             >
-              <span className="mt-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-amber-500 text-white">
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                </svg>
+              <span className="mt-1 inline-flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-amber-100">
+                <Check className="h-4 w-4 text-amber-700" strokeWidth={2.5} />
               </span>
               <p className="text-lg text-gray-700">{item}</p>
             </motion.div>

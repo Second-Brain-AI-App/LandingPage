@@ -88,7 +88,7 @@ export const landingContent = {
     cards: [
       {
         id: 'voice',
-        icon: '🎤',
+        icon: 'mic',
         title: 'Voice-first',
         description: 'Get thoughts out before they vanish. Just talk - messy, half-formed, whatever.',
         span: 'col-span-1 lg:col-span-2',
@@ -96,7 +96,7 @@ export const landingContent = {
       },
       {
         id: 'decisions',
-        icon: '🧠',
+        icon: 'brain',
         title: 'Zero decisions',
         description: 'No folders. No tags. No categories. Just talk - AI figures out the rest.',
         span: 'col-span-1',
@@ -104,7 +104,7 @@ export const landingContent = {
       },
       {
         id: 'nudges',
-        icon: '💬',
+        icon: 'messageCircle',
         title: 'Gentle nudges',
         description: 'Human reminders, not robot alerts. No guilt, no shame.',
         span: 'col-span-1',
@@ -112,7 +112,7 @@ export const landingContent = {
       },
       {
         id: 'chaos',
-        icon: '🌀',
+        icon: 'refreshCw',
         title: 'Works for your chaos',
         description: "Disappear for weeks. Come back. No guilt trip - just 'welcome back.'",
         span: 'col-span-1 lg:col-span-2',
@@ -120,7 +120,7 @@ export const landingContent = {
       },
       {
         id: 'privacy',
-        icon: '🔒',
+        icon: 'lock',
         title: 'Private by default',
         description: 'Your thoughts stay yours. Private by design.',
         span: 'col-span-1 lg:col-span-3',
