@@ -13,6 +13,7 @@ export const landingContent = {
     links: [
       { label: 'How it Works', href: '#how-it-works' },
       { label: 'Features', href: '#capture' },
+      { label: 'Why', href: '#why' },
       { label: 'FAQ', href: '#faq' },
     ],
   },

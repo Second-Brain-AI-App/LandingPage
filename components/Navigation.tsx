@@ -12,23 +12,31 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const direction = useScrollDirection(6)
 
-  const smoothScroll = (href: string) => {
-    const target = document.querySelector(href)
-    if (target) {
-      // Nav bar: top-4 (16px) + h-16 (64px) = 80px
-      // Sections have py-24 (96px) padding, so content starts 96px into section
-      // We want content ~100px from viewport top
-      // So: offset = 100 - 96 = ~4px, but use 16px for small breathing room
-      const y = target.getBoundingClientRect().top + window.scrollY - 16
-      window.scrollTo({ top: y, behavior: 'smooth' })
+  const smoothScroll = (href: string, fromMobile = false) => {
+    // Close menu first on mobile
+    if (fromMobile) {
+      setIsMenuOpen(false)
+      // Wait for menu to close before scrolling
+      setTimeout(() => {
+        const target = document.querySelector(href)
+        if (target) {
+          const y = target.getBoundingClientRect().top + window.scrollY - 16
+          window.scrollTo({ top: y, behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      const target = document.querySelector(href)
+      if (target) {
+        const y = target.getBoundingClientRect().top + window.scrollY - 16
+        window.scrollTo({ top: y, behavior: 'smooth' })
+      }
     }
-    setIsMenuOpen(false)
   }
 
-  const handleAnchorClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleAnchorClick = (event: React.MouseEvent<HTMLAnchorElement>, href: string, fromMobile = false) => {
     if (!href.startsWith('#')) return
     event.preventDefault()
-    smoothScroll(href)
+    smoothScroll(href, fromMobile)
   }
 
   return (
@@ -96,7 +104,7 @@ export function Navigation() {
                     key={link.href}
                     href={link.href}
                     className="block text-base font-medium"
-                    onClick={(event) => handleAnchorClick(event, link.href)}
+                    onClick={(event) => handleAnchorClick(event, link.href, true)}
                   >
                     {link.label}
                   </Link>
