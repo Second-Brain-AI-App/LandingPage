@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Waveform } from './Waveform'
 import { TypingText } from './TypingText'
-import { Check, X, Settings, Sparkles, Clock, Plus, Search } from 'lucide-react'
+import { Check, X, Settings, Sparkles, Clock, Plus, Search, ChevronUp } from 'lucide-react'
 
 // Props for controlled component
 type CapturePhoneProps = {
@@ -154,7 +154,15 @@ function RecordingScreen({ text, context }: { text: string; context?: string }) 
             showCursor
           />
         </p>
-        <p className="absolute bottom-4 right-5 text-sm text-gray-400">tap to type</p>
+        <div className="absolute bottom-4 right-5 flex items-center gap-1 text-sm text-gray-400">
+          <motion.span
+            animate={{ y: [0, -3, 0] }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <ChevronUp className="h-4 w-4" />
+          </motion.span>
+          tap to type
+        </div>
       </div>
 
       {/* Waveform */}
@@ -171,7 +179,6 @@ function RecordingScreen({ text, context }: { text: string; context?: string }) 
       >
         Done <Check className="h-5 w-5" />
       </motion.button>
-      <p className="mb-2 text-center text-sm text-gray-400">Tap to save · or just keep talking</p>
     </motion.div>
   )
 }

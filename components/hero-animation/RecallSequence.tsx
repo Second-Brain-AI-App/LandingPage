@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { X, Plus } from 'lucide-react'
+import { X, Plus, ChevronUp } from 'lucide-react'
 import { TypingText } from './TypingText'
 
 // Props for controlled component
@@ -156,7 +156,15 @@ function StaticAskScreen() {
         <p className="text-base leading-relaxed text-gray-400">
           Tap to ask a question...
         </p>
-        <p className="absolute bottom-4 right-5 text-sm text-gray-400">tap to type</p>
+        <div className="absolute bottom-4 right-5 flex items-center gap-1 text-sm text-gray-400">
+          <motion.span
+            animate={{ y: [0, -3, 0] }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <ChevronUp className="h-4 w-4" />
+          </motion.span>
+          tap to type
+        </div>
       </div>
 
       {/* Static waveform */}
@@ -170,7 +178,6 @@ function StaticAskScreen() {
       >
         Search
       </button>
-      <p className="mb-2 text-center text-sm text-gray-400">Tap to search your memory</p>
     </motion.div>
   )
 }
@@ -222,7 +229,15 @@ function AskingScreen({ question }: { question: string }) {
             showCursor
           />
         </p>
-        <p className="absolute bottom-4 right-5 text-sm text-gray-400">tap to type</p>
+        <div className="absolute bottom-4 right-5 flex items-center gap-1 text-sm text-gray-400">
+          <motion.span
+            animate={{ y: [0, -3, 0] }}
+            transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <ChevronUp className="h-4 w-4" />
+          </motion.span>
+          tap to type
+        </div>
       </div>
 
       {/* Waveform */}
@@ -239,7 +254,6 @@ function AskingScreen({ question }: { question: string }) {
       >
         Search
       </motion.button>
-      <p className="mb-2 text-center text-sm text-gray-400">Tap to search your memory</p>
     </motion.div>
   )
 }

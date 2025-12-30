@@ -66,15 +66,15 @@ const BEATS: Beat[] = [
   { left: 'notification', right: 'asking', story: 1, duration: 3500 },
   { left: 'notification', right: 'answer', story: 1, duration: 3000 },
   // Story 2: Lisa from Stripe (at airport, then 3 months later)
-  { left: 'recording', right: 'static', story: 2, duration: 6000 },
+  { left: 'recording', right: 'static', story: 2, duration: 8000 },
   { left: 'confirmation', right: 'static', story: 2, duration: 2000 },
   { left: 'timeTransition', right: 'static', story: 2, duration: 2500 },
   { left: 'memoryTab', right: 'asking', story: 2, rightQuestion: 1, duration: 3500 },
   { left: 'memoryTab', right: 'answer', story: 2, rightQuestion: 1, duration: 3000 },
   { left: 'memoryTab', right: 'asking', story: 2, rightQuestion: 2, duration: 3500 },
-  { left: 'memoryTab', right: 'answer', story: 2, rightQuestion: 2, duration: 3500 },
+  { left: 'memoryTab', right: 'answer', story: 2, rightQuestion: 2, duration: 4500 },
   // Story 3: David's ramen
-  { left: 'recording', right: 'static', story: 3, duration: 5500 },
+  { left: 'recording', right: 'static', story: 3, duration: 7000 },
   { left: 'confirmation', right: 'static', story: 3, duration: 2000 },
   { left: 'memoryTab', right: 'asking', story: 3, rightQuestion: 1, duration: 3500 },
   { left: 'memoryTab', right: 'answer', story: 3, rightQuestion: 1, duration: 3500 },
