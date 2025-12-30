@@ -12,7 +12,7 @@ export const landingContent = {
     ctaHref: 'https://testflight.apple.com/join/secondbrain',
     links: [
       { label: 'How it Works', href: '#how-it-works' },
-      { label: 'Features', href: '#features' },
+      { label: 'Features', href: '#capture' },
       { label: 'FAQ', href: '#faq' },
     ],
   },
@@ -245,19 +245,29 @@ export const landingContent = {
           'No. Todo apps require you to organize, categorize, and remember to check them. Second Brain captures your raw thoughts, figures out what is actionable, and reminds you at the right moment. You just talk - it does the rest.',
       },
       {
-        question: 'What if I forget to use it?',
-        answer:
-          "That's the point - it's designed for people who forget things. Use it inconsistently. Disappear for weeks. When you come back, everything's still there, and it won't guilt you about it.",
-      },
-      {
         question: 'How does the AI work?',
         answer:
           'When you capture a thought, AI extracts what matters: is it an action or just information? What is the deadline? Who is involved? It does this in under 2 seconds, then uses that to decide when and how to remind you.',
       },
       {
+        question: 'What platforms is it available on?',
+        answer:
+          'Second Brain is currently available on iOS (iPhone and iPad). Android and web versions are on our roadmap.',
+      },
+      {
+        question: 'Can I use it on Apple Watch?',
+        answer:
+          "Yes! You can capture thoughts directly from your Apple Watch — perfect for those moments when pulling out your phone isn't convenient.",
+      },
+      {
+        question: 'How do I search my memories?',
+        answer:
+          'Just ask in plain English. Type or say something like "What did mom want for her birthday?" and Second Brain will find it instantly. No folders or tags to remember.',
+      },
+      {
         question: 'When can I try it?',
         answer:
-          "We're in private beta on iOS. Join the waitlist and we'll let you know when spots open up.",
+          "We're currently in beta on iOS. Click 'Join the Beta' to get access via TestFlight and start using it today.",
       },
       {
         question: 'Is it free?',
@@ -282,7 +292,7 @@ export const landingContent = {
       { label: 'Contact', href: 'mailto:hello@secondbrain.app' },
       { label: 'Twitter', href: 'https://twitter.com/secondbrainapp' },
     ],
-    copyright: 'Copyright 2024 Second Brain. All rights reserved.',
+    copyright: 'Copyright 2025 Second Brain. All rights reserved.',
   },
 } as const
 

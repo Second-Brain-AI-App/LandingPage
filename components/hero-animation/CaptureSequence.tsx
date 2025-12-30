@@ -102,7 +102,7 @@ export function CaptureSequence() {
       confirmationTitle="Get mom's birthday gift"
       nowTask="Get mom's birthday gift"
       notification="Mom's birthday Saturday — got her gift yet?"
-      isStory1={true}
+      storyNumber={1}
     />
   )
 }

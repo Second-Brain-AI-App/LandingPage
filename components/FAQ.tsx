@@ -3,6 +3,7 @@
 import { landingContent } from '@/content/landingContent'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useState } from 'react'
+import { Plus, Minus } from 'lucide-react'
 
 export function FAQ() {
   const { faq } = landingContent
@@ -31,14 +32,14 @@ export function FAQ() {
                 >
                   <span className="text-lg font-semibold text-gray-900">{item.question}</span>
                   <span
-                    className={`ml-4 flex h-10 w-10 items-center justify-center rounded-2xl border text-xl transition ${
+                    className={`ml-4 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-2xl border transition ${
                       isOpen
                         ? 'border-amber-200 bg-amber-100 text-amber-700'
                         : 'border-gray-100 bg-gray-50 text-gray-500'
                     }`}
                     aria-hidden="true"
                   >
-                    {isOpen ? '-' : '+'}
+                    {isOpen ? <Minus className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
                   </span>
                 </button>
                 <AnimatePresence initial={false}>

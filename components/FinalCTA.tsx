@@ -8,8 +8,8 @@ export function FinalCTA() {
 
   return (
     <section id="cta" className="bg-dark-gradient py-24 text-center text-white">
-      <div className="mx-auto max-w-2xl px-4">
-        <p className="text-4xl font-bold sm:text-5xl">
+      <div className="mx-auto max-w-4xl px-4">
+        <p className="text-3xl font-bold sm:text-4xl md:text-5xl whitespace-nowrap">
           {finalCta.headline}{' '}
           <span className="bg-text-gradient bg-clip-text text-transparent">{finalCta.accent}</span>
         </p>

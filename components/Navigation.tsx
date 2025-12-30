@@ -15,7 +15,11 @@ export function Navigation() {
   const smoothScroll = (href: string) => {
     const target = document.querySelector(href)
     if (target) {
-      const y = target.getBoundingClientRect().top + window.scrollY - 100
+      // Nav bar: top-4 (16px) + h-16 (64px) = 80px
+      // Sections have py-24 (96px) padding, so content starts 96px into section
+      // We want content ~100px from viewport top
+      // So: offset = 100 - 96 = ~4px, but use 16px for small breathing room
+      const y = target.getBoundingClientRect().top + window.scrollY - 16
       window.scrollTo({ top: y, behavior: 'smooth' })
     }
     setIsMenuOpen(false)

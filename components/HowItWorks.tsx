@@ -80,8 +80,8 @@ export function HowItWorks() {
                 preserveAspectRatio="xMidYMid meet"
               >
                 <defs>
-                  <marker id="arrowPurpleDown" markerWidth="2.9" markerHeight="2.9" refX="0" refY="1.45" orient="auto">
-                    <path d="M 0 0 L 2.9 1.45 L 0 2.9 Z" fill="#A855F7" fillOpacity="0.7" />
+                  <marker id="arrowOrangeDown" markerWidth="2.9" markerHeight="2.9" refX="0" refY="1.45" orient="auto">
+                    <path d="M 0 0 L 2.9 1.45 L 0 2.9 Z" fill="#F97316" fillOpacity="0.7" />
                   </marker>
                   <marker id="arrowBlueDown" markerWidth="2.9" markerHeight="2.9" refX="0" refY="1.45" orient="auto">
                     <path d="M 0 0 L 2.9 1.45 L 0 2.9 Z" fill="#3B82F6" fillOpacity="0.7" />
@@ -101,12 +101,12 @@ export function HowItWorks() {
                      Q 70 470 70 510
                      L 70 520"
                   fill="none"
-                  stroke="#A855F7"
+                  stroke="#F97316"
                   strokeWidth="13"
                   strokeOpacity="0.4"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  markerEnd="url(#arrowPurpleDown)"
+                  markerEnd="url(#arrowOrangeDown)"
                   variants={lineVariants}
                   initial="hidden"
                   animate={inView ? 'visible' : 'hidden'}
@@ -121,12 +121,12 @@ export function HowItWorks() {
                      Q 450 470 450 510
                      L 450 520"
                   fill="none"
-                  stroke="#A855F7"
+                  stroke="#F97316"
                   strokeWidth="13"
                   strokeOpacity="0.4"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  markerEnd="url(#arrowPurpleDown)"
+                  markerEnd="url(#arrowOrangeDown)"
                   variants={lineVariants}
                   initial="hidden"
                   animate={inView ? 'visible' : 'hidden'}
@@ -169,7 +169,7 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0}
-                    className="text-xs font-semibold tracking-[0.2em] text-purple-600 mb-4"
+                    className="text-xs font-semibold tracking-[0.2em] text-amber-600 mb-4"
                   >
                     {howItWorks.rememberLabel}
                   </motion.p>
@@ -183,7 +183,7 @@ export function HowItWorks() {
                     className="flex-1 rounded-2xl border border-gray-100 bg-white p-5 shadow-lg"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-100 text-2xl">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl">
                         <Icon name={howItWorks.remember.input.icon} className="h-6 w-6" />
                       </div>
                       <div>
@@ -266,10 +266,10 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0.7}
-                    className="rounded-2xl border border-purple-200/60 bg-gradient-to-br from-purple-50 to-violet-50 p-5 shadow-md"
+                    className="rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-5 shadow-md"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-xl">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-xl">
                         <Icon name={howItWorks.remember.outputs[0].icon} className="h-5 w-5" />
                       </div>
                       <div>
@@ -288,10 +288,10 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0.8}
-                    className="rounded-2xl border border-purple-200/60 bg-gradient-to-br from-purple-50 to-violet-50 p-5 shadow-md"
+                    className="rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-5 shadow-md"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-xl">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-xl">
                         <Icon name={howItWorks.remember.outputs[1].icon} className="h-5 w-5" />
                       </div>
                       <div>

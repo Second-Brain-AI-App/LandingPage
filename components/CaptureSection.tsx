@@ -208,7 +208,7 @@ function ExampleRow({ example, index }: { example: Example; index: number }) {
 
 export function CaptureSection() {
   return (
-    <section className="bg-[#FAF7F2] py-16 md:py-24">
+    <section id="capture" className="bg-[#FAF7F2] py-16 md:py-24 scroll-mt-24">
       <div className="mx-auto max-w-5xl px-4 md:px-10">
         {/* Header */}
         <motion.div
