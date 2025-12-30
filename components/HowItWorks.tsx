@@ -3,7 +3,7 @@
 import { landingContent } from '@/content/landingContent'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
-import { Mic, Search, Bell, Gift, Sparkles, Brain, BrainCircuit, BrainCog } from 'lucide-react'
+import { Mic, Search, Bell, Gift, Sparkles, Brain, BrainCircuit, BrainCog, MessageSquare } from 'lucide-react'
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   mic: Mic,
@@ -12,6 +12,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   gift: Gift,
   sparkles: Sparkles,
   brain: Brain,
+  message: MessageSquare,
 }
 
 function Icon({ name, className }: { name: string; className?: string }) {
@@ -47,7 +48,7 @@ export function HowItWorks() {
     <section id="how-it-works" className="bg-gradient-to-b from-white to-amber-50/30 py-24 scroll-mt-32 overflow-hidden">
       <div className="mx-auto max-w-5xl px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <motion.p
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -75,56 +76,79 @@ export function HowItWorks() {
               {/* SVG Overlay for flow lines */}
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none z-10"
-                viewBox="0 0 900 850"
+                viewBox="0 0 900 760"
                 preserveAspectRatio="xMidYMid meet"
               >
                 <defs>
-                  {/* Arrow marker pointing right (becomes down when path goes down with orient=auto) */}
-                  <marker id="arrowAmberDown" markerWidth="4" markerHeight="4" refX="0" refY="2" orient="auto">
-                    <path d="M 0 0 L 4 2 L 0 4 Z" fill="#F97316" fillOpacity="0.7" />
+                  <marker id="arrowPurpleDown" markerWidth="2.9" markerHeight="2.9" refX="0" refY="1.45" orient="auto">
+                    <path d="M 0 0 L 2.9 1.45 L 0 2.9 Z" fill="#A855F7" fillOpacity="0.7" />
                   </marker>
-                  <marker id="arrowBlueDown" markerWidth="4" markerHeight="4" refX="0" refY="2" orient="auto">
-                    <path d="M 0 0 L 4 2 L 0 4 Z" fill="#3B82F6" fillOpacity="0.7" />
+                  <marker id="arrowBlueDown" markerWidth="2.9" markerHeight="2.9" refX="0" refY="1.45" orient="auto">
+                    <path d="M 0 0 L 2.9 1.45 L 0 2.9 Z" fill="#3B82F6" fillOpacity="0.7" />
                   </marker>
                 </defs>
 
-                {/* Left continuous path: Capture → around brain → Nudge */}
+                {/* Left path: Capture → into Brain → out bottom-left → split to Nudge */}
                 <motion.path
-                  d="M 180 192
-                     L 180 232
-                     Q 180 282 230 282
-                     L 370 282
-                     A 80 80 0 0 1 370 382
-                     L 230 382
-                     Q 180 382 180 432
-                     L 180 502"
+                  d="M 180 285
+                     L 180 310
+                     Q 180 350 230 350
+                     L 350 350
+                     Q 380 350 380 390
+                     L 380 430
+                     Q 380 470 340 470
+                     L 120 470
+                     Q 70 470 70 510
+                     L 70 520"
                   fill="none"
-                  stroke="#F97316"
-                  strokeWidth="8"
-                  strokeOpacity="0.7"
+                  stroke="#A855F7"
+                  strokeWidth="13"
+                  strokeOpacity="0.4"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  markerEnd="url(#arrowAmberDown)"
+                  markerEnd="url(#arrowPurpleDown)"
                   variants={lineVariants}
                   initial="hidden"
                   animate={inView ? 'visible' : 'hidden'}
                   custom={0.3}
                 />
 
+                {/* Branch from split point → Focus */}
+                <motion.path
+                  d="M 380 430
+                     Q 380 470 410 470
+                     L 415 470
+                     Q 450 470 450 510
+                     L 450 520"
+                  fill="none"
+                  stroke="#A855F7"
+                  strokeWidth="13"
+                  strokeOpacity="0.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  markerEnd="url(#arrowPurpleDown)"
+                  variants={lineVariants}
+                  initial="hidden"
+                  animate={inView ? 'visible' : 'hidden'}
+                  custom={0.5}
+                />
+
                 {/* Right continuous path: Ask → around brain → Answer */}
                 <motion.path
-                  d="M 720 192
-                     L 720 232
-                     Q 720 282 670 282
-                     L 530 282
-                     A 80 80 0 0 0 530 382
-                     L 670 382
-                     Q 720 382 720 432
-                     L 720 502"
+                  d="M 720 285
+                     L 720 310
+                     Q 720 350 670 350
+                     L 550 350
+                     Q 520 350 520 390
+                     L 520 430
+                     Q 520 470 560 470
+                     L 780 470
+                     Q 830 470 830 510
+                     L 830 520"
                   fill="none"
                   stroke="#3B82F6"
-                  strokeWidth="8"
-                  strokeOpacity="0.7"
+                  strokeWidth="13"
+                  strokeOpacity="0.4"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   markerEnd="url(#arrowBlueDown)"
@@ -136,7 +160,7 @@ export function HowItWorks() {
               </svg>
 
               {/* Content Grid */}
-              <div className="grid grid-cols-[1fr_180px_1fr] gap-8 items-start">
+              <div className="grid grid-cols-[1fr_180px_1fr] gap-8 items-stretch pt-8">
                 {/* Left Column - Remember */}
                 <div className="flex flex-col">
                   {/* Label */}
@@ -145,7 +169,7 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0}
-                    className="text-xs font-semibold tracking-[0.2em] text-amber-600 mb-4"
+                    className="text-xs font-semibold tracking-[0.2em] text-purple-600 mb-4"
                   >
                     {howItWorks.rememberLabel}
                   </motion.p>
@@ -156,10 +180,10 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0.1}
-                    className="rounded-2xl border border-gray-100 bg-white p-5 shadow-lg"
+                    className="flex-1 rounded-2xl border border-gray-100 bg-white p-5 shadow-lg"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-100 text-2xl">
                         <Icon name={howItWorks.remember.input.icon} className="h-6 w-6" />
                       </div>
                       <div>
@@ -177,7 +201,7 @@ export function HowItWorks() {
                 <div />
 
                 {/* Right Column - Recall */}
-                <div className="flex flex-col">
+                <div className="flex flex-col justify-end">
                   {/* Label */}
                   <motion.p
                     variants={cardVariants}
@@ -213,10 +237,11 @@ export function HowItWorks() {
                 </div>
 
                 {/* Row 2: Spacer + Brain + Spacer */}
-                <div className="h-[280px]" />
+                <div className="h-[160px]" />
 
                 {/* Center - Brain */}
-                <div className="flex flex-col items-center justify-start h-[280px] pt-4">
+                <div className="flex flex-col items-center justify-start h-[200px]">
+                  {/* Circle with label inside */}
                   <motion.div
                     initial={{ scale: 0, opacity: 0 }}
                     animate={inView ? { scale: 1, opacity: 1 } : {}}
@@ -224,77 +249,83 @@ export function HowItWorks() {
                     className="relative"
                   >
                     <div className="absolute inset-[-40px] rounded-full bg-amber-400/20 blur-2xl" />
-                    <div className="relative flex h-42 w-42 items-center justify-center rounded-full bg-brand-gradient opacity-80 shadow-2xl" style={{ height: '168px', width: '168px' }}>
+                    <div className="relative flex flex-col items-center justify-center rounded-full bg-brand-gradient opacity-80 shadow-2xl" style={{ height: '180px', width: '180px' }}>
                       <BrainCircuit className="h-16 w-16 text-white" />
+                      <p className="mt-1 text-sm font-bold text-white">{howItWorks.brain.label}</p>
                     </div>
                   </motion.div>
+                </div>
+
+                <div className="h-[160px]" />
+
+                {/* Row 3: Output cards - Nudge, Focus, Answer all in one row */}
+                <div className="col-span-3 grid grid-cols-3 gap-6">
+                  {/* Nudge */}
                   <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={inView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ delay: 0.5, duration: 0.4 }}
-                    className="mt-3 text-center"
+                    variants={cardVariants}
+                    initial="hidden"
+                    animate={inView ? 'visible' : 'hidden'}
+                    custom={0.7}
+                    className="rounded-2xl border border-purple-200/60 bg-gradient-to-br from-purple-50 to-violet-50 p-5 shadow-md"
                   >
-                    <p className="text-base font-bold text-gray-900">{howItWorks.brain.label}</p>
-                    <p className="text-sm text-gray-500">{howItWorks.brain.sublabel}</p>
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-xl">
+                        <Icon name={howItWorks.remember.outputs[0].icon} className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-base font-bold text-gray-900">{howItWorks.remember.outputs[0].title}</p>
+                        <p className="text-sm text-gray-600">{howItWorks.remember.outputs[0].subtitle}</p>
+                      </div>
+                    </div>
+                    <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic">
+                      {howItWorks.remember.outputs[0].example}
+                    </p>
+                  </motion.div>
+
+                  {/* Memory */}
+                  <motion.div
+                    variants={cardVariants}
+                    initial="hidden"
+                    animate={inView ? 'visible' : 'hidden'}
+                    custom={0.8}
+                    className="rounded-2xl border border-purple-200/60 bg-gradient-to-br from-purple-50 to-violet-50 p-5 shadow-md"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-purple-100 text-xl">
+                        <Icon name={howItWorks.remember.outputs[1].icon} className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-base font-bold text-gray-900">{howItWorks.remember.outputs[1].title}</p>
+                        <p className="text-sm text-gray-600">{howItWorks.remember.outputs[1].subtitle}</p>
+                      </div>
+                    </div>
+                    <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic">
+                      {howItWorks.remember.outputs[1].example}
+                    </p>
+                  </motion.div>
+
+                  {/* Answer */}
+                  <motion.div
+                    variants={cardVariants}
+                    initial="hidden"
+                    animate={inView ? 'visible' : 'hidden'}
+                    custom={0.9}
+                    className="rounded-2xl border border-blue-200/60 bg-gradient-to-br from-blue-50 to-indigo-50 p-5 shadow-md"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-xl">
+                        <Icon name={howItWorks.recall.output.icon} className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <p className="text-base font-bold text-gray-900">{howItWorks.recall.output.title}</p>
+                        <p className="text-sm text-gray-600">{howItWorks.recall.output.subtitle}</p>
+                      </div>
+                    </div>
+                    <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic whitespace-pre-line">
+                      {howItWorks.recall.output.example}
+                    </p>
                   </motion.div>
                 </div>
-
-                <div className="h-[250px]" />
-
-                {/* Row 3: Output cards */}
-                {/* Left Output Cards - Nudge & Focus */}
-                <div className="space-y-4">
-                  {howItWorks.remember.outputs.map((output, index) => (
-                    <motion.div
-                      key={output.title}
-                      variants={cardVariants}
-                      initial="hidden"
-                      animate={inView ? 'visible' : 'hidden'}
-                      custom={0.7 + index * 0.1}
-                      className="rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-5 shadow-md"
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-xl">
-                          <Icon name={output.icon} className="h-5 w-5" />
-                        </div>
-                        <div>
-                          <p className="text-base font-bold text-gray-900">{output.title}</p>
-                          <p className="text-sm text-gray-600">{output.subtitle}</p>
-                        </div>
-                      </div>
-                      {output.example && (
-                        <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic">
-                          {output.example}
-                        </p>
-                      )}
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Center spacer */}
-                <div />
-
-                {/* Right Output Card - Answer */}
-                <motion.div
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate={inView ? 'visible' : 'hidden'}
-                  custom={0.8}
-                  className="rounded-2xl border border-blue-200/60 bg-gradient-to-br from-blue-50 to-indigo-50 p-5 shadow-md"
-                >
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-xl">
-                      <Icon name={howItWorks.recall.output.icon} className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="text-base font-bold text-gray-900">{howItWorks.recall.output.title}</p>
-                      <p className="text-sm text-gray-600">{howItWorks.recall.output.subtitle}</p>
-                    </div>
-                  </div>
-                  <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic whitespace-pre-line">
-                    {howItWorks.recall.output.example}
-                  </p>
-                </motion.div>
               </div>
             </div>
           </div>

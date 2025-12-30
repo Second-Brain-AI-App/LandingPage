@@ -43,7 +43,7 @@ export const landingContent = {
       input: {
         icon: 'mic',
         title: 'Capture',
-        subtitle: 'Voice or text',
+        subtitle: 'in Voice or Text',
         example: '"Mom\'s birthday is Saturday, she mentioned wanting that garden tool set from the podcast she listens to"',
       },
       outputs: [
@@ -54,10 +54,10 @@ export const landingContent = {
           example: '"Mom\'s birthday Saturday — got her gift yet?"',
         },
         {
-          icon: 'sparkles',
-          title: 'Focus',
-          subtitle: 'Top 1-3 things',
-          example: '"Mom\'s gift · Call dentist · Reply to Jake"',
+          icon: 'brain',
+          title: 'Memory',
+          subtitle: 'Well organized',
+          example: '"Family · Mom · Birthday · Gift ideas"',
         },
       ],
     },
@@ -65,11 +65,11 @@ export const landingContent = {
       input: {
         icon: 'search',
         title: 'Ask',
-        subtitle: 'Plain English',
+        subtitle: 'in Plain English',
         example: '"What did mom want for her birthday?"',
       },
       output: {
-        icon: 'gift',
+        icon: 'message',
         title: 'Answer',
         subtitle: 'Instant recall',
         example: '"Garden tool set from the podcast she listens to"\n🎂 Birthday Saturday',
