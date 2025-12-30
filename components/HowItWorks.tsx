@@ -70,12 +70,12 @@ export function HowItWorks() {
 
         {/* Flowchart */}
         <div ref={sectionRef} className="relative">
-          {/* Desktop Layout */}
-          <div className="hidden lg:block">
+          {/* Diagram Layout - All screen sizes */}
+          <div>
             <div className="relative">
-              {/* SVG Overlay for flow lines */}
+              {/* SVG Overlay for flow lines - desktop only */}
               <svg
-                className="absolute inset-0 w-full h-full pointer-events-none z-10"
+                className="absolute inset-0 w-full h-full pointer-events-none z-10 hidden lg:block"
                 viewBox="0 0 900 760"
                 preserveAspectRatio="xMidYMid meet"
               >
@@ -160,7 +160,7 @@ export function HowItWorks() {
               </svg>
 
               {/* Content Grid */}
-              <div className="grid grid-cols-[1fr_180px_1fr] gap-8 items-stretch pt-8">
+              <div className="grid grid-cols-2 lg:grid-cols-[1fr_180px_1fr] gap-4 lg:gap-8 items-stretch pt-8">
                 {/* Left Column - Remember */}
                 <div className="flex flex-col">
                   {/* Label */}
@@ -169,7 +169,7 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0}
-                    className="text-xs font-semibold tracking-[0.2em] text-amber-600 mb-4"
+                    className="text-[10px] lg:text-xs font-semibold tracking-[0.2em] text-amber-600 mb-3 lg:mb-4"
                   >
                     {howItWorks.rememberLabel}
                   </motion.p>
@@ -180,25 +180,25 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0.1}
-                    className="flex-1 rounded-2xl border border-gray-100 bg-white p-5 shadow-lg"
+                    className="flex-1 rounded-2xl border border-gray-100 bg-white p-3 lg:p-5 shadow-lg"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl">
-                        <Icon name={howItWorks.remember.input.icon} className="h-6 w-6" />
+                      <div className="flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-2xl bg-amber-100 text-2xl">
+                        <Icon name={howItWorks.remember.input.icon} className="h-5 w-5 lg:h-6 lg:w-6" />
                       </div>
                       <div>
-                        <p className="text-lg font-bold text-gray-900">{howItWorks.remember.input.title}</p>
-                        <p className="text-sm text-gray-500">{howItWorks.remember.input.subtitle}</p>
+                        <p className="text-base lg:text-lg font-bold text-gray-900">{howItWorks.remember.input.title}</p>
+                        <p className="text-sm text-gray-500 hidden lg:block">{howItWorks.remember.input.subtitle}</p>
                       </div>
                     </div>
-                    <p className="mt-4 rounded-xl bg-gray-50 p-3 text-sm text-gray-600 italic">
+                    <p className="mt-4 rounded-xl bg-gray-50 p-3 text-sm text-gray-600 italic hidden lg:block">
                       {howItWorks.remember.input.example}
                     </p>
                   </motion.div>
                 </div>
 
-                {/* Center spacer for row 1 */}
-                <div />
+                {/* Center spacer for row 1 - desktop only */}
+                <div className="hidden lg:block" />
 
                 {/* Right Column - Recall */}
                 <div className="flex flex-col justify-end">
@@ -208,7 +208,7 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0}
-                    className="text-xs font-semibold tracking-[0.2em] text-blue-600 mb-4 text-right"
+                    className="text-[10px] lg:text-xs font-semibold tracking-[0.2em] text-blue-600 mb-3 lg:mb-4 text-right"
                   >
                     {howItWorks.recallLabel}
                   </motion.p>
@@ -219,28 +219,38 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0.2}
-                    className="rounded-2xl border border-gray-100 bg-white p-5 shadow-lg"
+                    className="rounded-2xl border border-gray-100 bg-white p-3 lg:p-5 shadow-lg"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-2xl">
-                        <Icon name={howItWorks.recall.input.icon} className="h-6 w-6" />
+                      <div className="flex h-10 w-10 lg:h-12 lg:w-12 items-center justify-center rounded-2xl bg-blue-100 text-2xl">
+                        <Icon name={howItWorks.recall.input.icon} className="h-5 w-5 lg:h-6 lg:w-6" />
                       </div>
                       <div>
-                        <p className="text-lg font-bold text-gray-900">{howItWorks.recall.input.title}</p>
-                        <p className="text-sm text-gray-500">{howItWorks.recall.input.subtitle}</p>
+                        <p className="text-base lg:text-lg font-bold text-gray-900">{howItWorks.recall.input.title}</p>
+                        <p className="text-sm text-gray-500 hidden lg:block">{howItWorks.recall.input.subtitle}</p>
                       </div>
                     </div>
-                    <p className="mt-4 rounded-xl bg-gray-50 p-3 text-sm text-gray-600 italic">
+                    <p className="mt-4 rounded-xl bg-gray-50 p-3 text-sm text-gray-600 italic hidden lg:block">
                       {howItWorks.recall.input.example}
                     </p>
                   </motion.div>
                 </div>
 
-                {/* Row 2: Spacer + Brain + Spacer */}
-                <div className="h-[160px]" />
+                {/* Row 2: Arrows down (mobile only) */}
+                <div className="col-span-2 flex justify-around py-2 lg:hidden">
+                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4 L12 16 M7 12 L12 18 L17 12" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.6" />
+                  </svg>
+                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4 L12 16 M7 12 L12 18 L17 12" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.6" />
+                  </svg>
+                </div>
+
+                {/* Row 2: Spacer + Brain + Spacer (desktop) */}
+                <div className="hidden lg:block h-[160px]" />
 
                 {/* Center - Brain */}
-                <div className="flex flex-col items-center justify-start h-[200px]">
+                <div className="col-span-2 lg:col-span-1 flex flex-col items-center justify-start py-4 lg:py-0 lg:h-[200px]">
                   {/* Circle with label inside */}
                   <motion.div
                     initial={{ scale: 0, opacity: 0 }}
@@ -249,35 +259,48 @@ export function HowItWorks() {
                     className="relative"
                   >
                     <div className="absolute inset-[-40px] rounded-full bg-amber-400/20 blur-2xl" />
-                    <div className="relative flex flex-col items-center justify-center rounded-full bg-brand-gradient opacity-80 shadow-2xl" style={{ height: '180px', width: '180px' }}>
-                      <BrainCircuit className="h-16 w-16 text-white" />
-                      <p className="mt-1 text-sm font-bold text-white">{howItWorks.brain.label}</p>
+                    <div className="relative flex flex-col items-center justify-center rounded-full bg-brand-gradient opacity-80 shadow-2xl h-20 w-20 lg:h-[180px] lg:w-[180px]">
+                      <BrainCircuit className="h-8 w-8 lg:h-16 lg:w-16 text-white" />
+                      <p className="mt-0.5 text-[10px] lg:text-sm font-bold text-white">{howItWorks.brain.label}</p>
                     </div>
                   </motion.div>
                 </div>
 
-                <div className="h-[160px]" />
+                <div className="hidden lg:block h-[160px]" />
 
-                {/* Row 3: Output cards - Nudge, Focus, Answer all in one row */}
-                <div className="col-span-3 grid grid-cols-3 gap-6">
+                {/* Row 3: Arrows down (mobile only) */}
+                <div className="col-span-2 flex justify-around py-2 lg:hidden">
+                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4 L12 16 M7 12 L12 18 L17 12" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.6" />
+                  </svg>
+                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4 L12 16 M7 12 L12 18 L17 12" stroke="#F97316" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.6" />
+                  </svg>
+                  <svg className="h-6 w-6" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 4 L12 16 M7 12 L12 18 L17 12" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.6" />
+                  </svg>
+                </div>
+
+                {/* Row 4: Output cards - all 3 in one row */}
+                <div className="col-span-2 lg:col-span-3 grid grid-cols-3 gap-2 lg:gap-6">
                   {/* Nudge */}
                   <motion.div
                     variants={cardVariants}
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0.7}
-                    className="rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-5 shadow-md"
+                    className="rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-2 lg:p-5 shadow-md"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-xl">
-                        <Icon name={howItWorks.remember.outputs[0].icon} className="h-5 w-5" />
+                    <div className="flex flex-col lg:flex-row items-center gap-1 lg:gap-3">
+                      <div className="flex h-8 w-8 lg:h-10 lg:w-10 items-center justify-center rounded-xl bg-amber-100 text-xl">
+                        <Icon name={howItWorks.remember.outputs[0].icon} className="h-4 w-4 lg:h-5 lg:w-5" />
                       </div>
-                      <div>
-                        <p className="text-base font-bold text-gray-900">{howItWorks.remember.outputs[0].title}</p>
-                        <p className="text-sm text-gray-600">{howItWorks.remember.outputs[0].subtitle}</p>
+                      <div className="text-center lg:text-left">
+                        <p className="text-xs lg:text-base font-bold text-gray-900">{howItWorks.remember.outputs[0].title}</p>
+                        <p className="text-xs text-gray-600 hidden lg:block">{howItWorks.remember.outputs[0].subtitle}</p>
                       </div>
                     </div>
-                    <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic">
+                    <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic hidden lg:block">
                       {howItWorks.remember.outputs[0].example}
                     </p>
                   </motion.div>
@@ -288,18 +311,18 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0.8}
-                    className="rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-5 shadow-md"
+                    className="rounded-2xl border border-amber-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-2 lg:p-5 shadow-md"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-xl">
-                        <Icon name={howItWorks.remember.outputs[1].icon} className="h-5 w-5" />
+                    <div className="flex flex-col lg:flex-row items-center gap-1 lg:gap-3">
+                      <div className="flex h-8 w-8 lg:h-10 lg:w-10 items-center justify-center rounded-xl bg-amber-100 text-xl">
+                        <Icon name={howItWorks.remember.outputs[1].icon} className="h-4 w-4 lg:h-5 lg:w-5" />
                       </div>
-                      <div>
-                        <p className="text-base font-bold text-gray-900">{howItWorks.remember.outputs[1].title}</p>
-                        <p className="text-sm text-gray-600">{howItWorks.remember.outputs[1].subtitle}</p>
+                      <div className="text-center lg:text-left">
+                        <p className="text-xs lg:text-base font-bold text-gray-900">{howItWorks.remember.outputs[1].title}</p>
+                        <p className="text-xs text-gray-600 hidden lg:block">{howItWorks.remember.outputs[1].subtitle}</p>
                       </div>
                     </div>
-                    <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic">
+                    <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic hidden lg:block">
                       {howItWorks.remember.outputs[1].example}
                     </p>
                   </motion.div>
@@ -310,18 +333,18 @@ export function HowItWorks() {
                     initial="hidden"
                     animate={inView ? 'visible' : 'hidden'}
                     custom={0.9}
-                    className="rounded-2xl border border-blue-200/60 bg-gradient-to-br from-blue-50 to-indigo-50 p-5 shadow-md"
+                    className="rounded-2xl border border-blue-200/60 bg-gradient-to-br from-blue-50 to-indigo-50 p-2 lg:p-5 shadow-md"
                   >
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-100 text-xl">
-                        <Icon name={howItWorks.recall.output.icon} className="h-5 w-5" />
+                    <div className="flex flex-col lg:flex-row items-center gap-1 lg:gap-3">
+                      <div className="flex h-8 w-8 lg:h-10 lg:w-10 items-center justify-center rounded-xl bg-blue-100 text-xl">
+                        <Icon name={howItWorks.recall.output.icon} className="h-4 w-4 lg:h-5 lg:w-5" />
                       </div>
-                      <div>
-                        <p className="text-base font-bold text-gray-900">{howItWorks.recall.output.title}</p>
-                        <p className="text-sm text-gray-600">{howItWorks.recall.output.subtitle}</p>
+                      <div className="text-center lg:text-left">
+                        <p className="text-xs lg:text-base font-bold text-gray-900">{howItWorks.recall.output.title}</p>
+                        <p className="text-xs text-gray-600 hidden lg:block">{howItWorks.recall.output.subtitle}</p>
                       </div>
                     </div>
-                    <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic whitespace-pre-line">
+                    <p className="mt-3 rounded-xl bg-white/80 p-3 text-sm text-gray-700 italic whitespace-pre-line hidden lg:block">
                       {howItWorks.recall.output.example}
                     </p>
                   </motion.div>
@@ -330,119 +353,6 @@ export function HowItWorks() {
             </div>
           </div>
 
-          {/* Mobile Layout */}
-          <div className="lg:hidden space-y-8">
-            {/* Brain at top center */}
-            <motion.div
-              initial={{ scale: 0, opacity: 0 }}
-              animate={inView ? { scale: 1, opacity: 1 } : {}}
-              transition={{ delay: 0.2, duration: 0.5, type: 'spring' }}
-              className="flex flex-col items-center"
-            >
-              <div className="relative">
-                <div className="absolute inset-[-30px] rounded-full bg-amber-400/20 blur-2xl" />
-                <div className="relative flex h-24 w-24 items-center justify-center rounded-full bg-brand-gradient shadow-xl">
-                  <BrainCircuit className="h-12 w-12 text-white" />
-                </div>
-              </div>
-              <p className="mt-3 text-base font-bold text-gray-900">{howItWorks.brain.label}</p>
-              <p className="text-sm text-gray-500">{howItWorks.brain.sublabel}</p>
-            </motion.div>
-
-            {/* Two columns side by side */}
-            <div className="grid grid-cols-2 gap-4">
-              {/* Left - Remember */}
-              <div className="space-y-3">
-                <p className="text-[10px] font-semibold tracking-[0.15em] text-amber-600 uppercase">
-                  {howItWorks.rememberLabel}
-                </p>
-
-                <motion.div
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate={inView ? 'visible' : 'hidden'}
-                  custom={0.3}
-                  className="rounded-xl border border-gray-100 bg-white p-3 shadow-md"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber-100 text-lg">
-                      <Icon name={howItWorks.remember.input.icon} className="h-6 w-6" />
-                    </div>
-                    <p className="text-sm font-bold text-gray-900">{howItWorks.remember.input.title}</p>
-                  </div>
-                </motion.div>
-
-                {/* Arrow down */}
-                <div className="flex justify-center">
-                  <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none">
-                    <path d="M16 6 L16 22 M10 18 L16 24 L22 18" stroke="#F59E0B" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-
-                {howItWorks.remember.outputs.map((output, index) => (
-                  <motion.div
-                    key={output.title}
-                    variants={cardVariants}
-                    initial="hidden"
-                    animate={inView ? 'visible' : 'hidden'}
-                    custom={0.5 + index * 0.1}
-                    className="rounded-xl border border-amber-200/60 bg-gradient-to-br from-amber-50 to-orange-50 p-3 shadow-sm"
-                  >
-                    <div className="flex items-center gap-2">
-                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-amber-100 text-base">
-                        <Icon name={output.icon} className="h-5 w-5" />
-                      </div>
-                      <p className="text-sm font-bold text-gray-900">{output.title}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              {/* Right - Recall */}
-              <div className="space-y-3">
-                <p className="text-[10px] font-semibold tracking-[0.15em] text-blue-600 uppercase text-right">
-                  {howItWorks.recallLabel}
-                </p>
-
-                <motion.div
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate={inView ? 'visible' : 'hidden'}
-                  custom={0.3}
-                  className="rounded-xl border border-gray-100 bg-white p-3 shadow-md"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-100 text-lg">
-                      <Icon name={howItWorks.recall.input.icon} className="h-6 w-6" />
-                    </div>
-                    <p className="text-sm font-bold text-gray-900">{howItWorks.recall.input.title}</p>
-                  </div>
-                </motion.div>
-
-                {/* Arrow down */}
-                <div className="flex justify-center">
-                  <svg className="h-8 w-8" viewBox="0 0 32 32" fill="none">
-                    <path d="M16 6 L16 22 M10 18 L16 24 L22 18" stroke="#3B82F6" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-
-                <motion.div
-                  variants={cardVariants}
-                  initial="hidden"
-                  animate={inView ? 'visible' : 'hidden'}
-                  custom={0.6}
-                  className="rounded-xl border border-blue-200/60 bg-gradient-to-br from-blue-50 to-indigo-50 p-3 shadow-sm"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-blue-100 text-base">
-                      <Icon name={howItWorks.recall.output.icon} className="h-5 w-5" />
-                    </div>
-                    <p className="text-sm font-bold text-gray-900">{howItWorks.recall.output.title}</p>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
