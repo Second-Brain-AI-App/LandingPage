@@ -260,24 +260,41 @@ function NowTabScreen({ task, storyNumber }: { task: string; storyNumber: 1 | 2 
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
     >
-      {/* Header */}
-      <div className="mb-4 flex items-start justify-between">
-        <div>
-          <h2 className="text-xl font-bold text-gray-900">Good morning</h2>
-          <p className="text-sm text-gray-400">Sunday, December 28</p>
+      {/* Header row */}
+      <div className="mb-1 flex items-center justify-between">
+        <p className="text-sm text-gray-500">Saturday, Jan 3</p>
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1 rounded-full border border-gray-200 bg-white px-2.5 py-1 text-sm">
+            <svg className="h-4 w-4 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="4" y1="6" x2="20" y2="6" />
+              <line x1="4" y1="12" x2="20" y2="12" />
+              <line x1="4" y1="18" x2="20" y2="18" />
+              <circle cx="8" cy="6" r="2" fill="currentColor" />
+              <circle cx="16" cy="12" r="2" fill="currentColor" />
+              <circle cx="10" cy="18" r="2" fill="currentColor" />
+            </svg>
+            <span className="font-medium text-gray-700">Now</span>
+            <svg className="h-3 w-3 text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </div>
+          <Settings className="h-5 w-5 text-gray-400" />
         </div>
-        <Settings className="h-6 w-6 text-gray-400" />
       </div>
 
-      {/* Now section header */}
+      {/* Greeting */}
+      <h2 className="mb-4 text-2xl font-bold text-gray-900">Hey there <span className="text-amber-400">✨</span></h2>
+
+      {/* NOW section header */}
       <div className="mb-3 flex items-center gap-2">
-        <Sparkles className="h-5 w-5 text-amber-500" />
-        <span className="text-sm font-semibold text-gray-700">Now</span>
+        <span className="h-2.5 w-2.5 rounded-full bg-red-500" />
+        <span className="text-sm font-semibold text-gray-700">NOW</span>
+        <span className="text-sm text-gray-400">(3)</span>
       </div>
 
-      {/* New item - highlighted */}
+      {/* Task card - new item highlighted */}
       <motion.div
-        className="mb-3 rounded-2xl bg-white p-4 shadow-sm"
+        className="mb-2.5 flex items-center gap-3 rounded-2xl bg-white px-4 py-3.5 shadow-sm"
         animate={{
           boxShadow: [
             '0 1px 3px rgba(0,0,0,0.1)',
@@ -287,84 +304,91 @@ function NowTabScreen({ task, storyNumber }: { task: string; storyNumber: 1 | 2 
         }}
         transition={{ duration: 1.5, repeat: 1 }}
       >
-        <p className="text-base font-medium text-gray-900">{task}</p>
-        <div className="mt-1.5 flex items-center gap-1.5">
-          <span className="flex items-center gap-0.5 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-700">
-            <span className="text-amber-500">◆</span> Medium
-          </span>
-          <span className="flex items-center gap-0.5 rounded bg-gray-100 px-1.5 py-0.5 text-xs text-gray-600">
-            📅 {storyNumber === 1 ? 'Saturday' : 'Today'}
-          </span>
+        <div className="h-5 w-5 rounded-full border-2 border-gray-300" />
+        <div className="flex-1">
+          <p className="text-sm font-medium text-gray-900">{task}</p>
+          <div className="mt-1 flex items-center gap-1">
+            <span className="h-2 w-2 rounded-full bg-red-500" />
+            <span className="text-xs text-gray-500">{storyNumber === 1 ? 'Saturday' : 'Today'}</span>
+          </div>
         </div>
+        <span className="text-amber-500">◆</span>
       </motion.div>
 
-      {/* Existing item */}
-      <div className="mb-3 rounded-2xl bg-white p-4 shadow-sm">
-        <p className="text-base font-medium text-gray-900">Call dentist to reschedule</p>
-        <div className="mt-1.5 flex items-center gap-1.5">
-          <span className="flex items-center gap-0.5 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-700">
-            <span className="text-yellow-500">⚡</span> Quick
-          </span>
-          <span className="flex items-center gap-0.5 rounded bg-red-50 px-1.5 py-0.5 text-xs text-red-600">
-            📅 Today
-          </span>
+      {/* Task card - existing */}
+      <div className="mb-2.5 flex items-center gap-3 rounded-2xl bg-white px-4 py-3.5 shadow-sm">
+        <div className="h-5 w-5 rounded-full border-2 border-gray-300" />
+        <div className="flex-1">
+          <p className="text-sm font-medium text-gray-900">Call dentist to reschedule</p>
+          <div className="mt-1 flex items-center gap-1">
+            <span className="h-2 w-2 rounded-full bg-red-500" />
+            <span className="text-xs text-gray-500">Today</span>
+          </div>
         </div>
+        <span className="text-yellow-500">⚡</span>
       </div>
 
-      {/* Soon section */}
-      <div className="mb-2 mt-2 flex items-center gap-2">
-        <Clock className="h-5 w-5 text-gray-400" />
-        <span className="text-sm font-semibold text-gray-500">Soon</span>
-        <span className="ml-auto text-sm text-gray-400">2 ›</span>
+      {/* Task card - third */}
+      <div className="mb-3 flex items-center gap-3 rounded-2xl bg-white px-4 py-3.5 shadow-sm">
+        <div className="h-5 w-5 rounded-full border-2 border-gray-300" />
+        <div className="flex-1">
+          <p className="text-sm font-medium text-gray-900">Review shower reflection</p>
+          <p className="mt-1 text-xs text-gray-400">No deadline</p>
+        </div>
+        <span className="text-yellow-500">⚡</span>
       </div>
 
-      {/* FABs - right aligned */}
-      <div className="absolute bottom-20 right-3 flex flex-col items-end gap-2">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-white shadow-lg">
-          <span className="text-lg font-semibold">?</span>
-        </div>
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-white shadow-lg">
-          <Plus className="h-5 w-5" strokeWidth={2.5} />
-        </div>
+      {/* LATER section header */}
+      <div className="mb-2 flex items-center gap-2">
+        <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
+        <span className="text-sm font-semibold text-gray-500">LATER</span>
+        <span className="text-sm text-gray-400">(1)</span>
+        <span className="ml-auto flex items-center gap-1 text-xs text-gray-400">
+          Show 1 items
+          <svg className="h-3 w-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M6 9l6 6 6-6" />
+          </svg>
+        </span>
       </div>
 
       {/* Tab bar */}
-      <TabBar activeTab="now" />
+      <TabBar activeTab="actions" />
     </motion.div>
   )
 }
 
-function TabBar({ activeTab }: { activeTab: 'now' | 'actions' | 'memory' }) {
+function TabBar({ activeTab }: { activeTab: 'actions' | 'memory' }) {
   return (
-    <div className="mx-4 mb-4 mt-auto flex items-center justify-center gap-6 rounded-xl bg-white px-2 py-1 shadow-sm">
+    <div className="mx-4 mb-4 mt-auto flex items-center justify-between rounded-xl bg-white px-4 py-2 shadow-sm">
+      {/* Actions tab */}
       <div className="flex flex-col items-center gap-0.5">
-        {/* Sparkle star */}
-        <svg className={`h-5 w-5 ${activeTab === 'now' ? 'text-amber-500' : 'text-gray-400'}`} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2L13.5 9L20 10.5L13.5 12L12 19L10.5 12L4 10.5L10.5 9L12 2Z" />
-          <circle cx="17" cy="5" r="1" />
-          <circle cx="6" cy="17" r="0.8" />
-        </svg>
-        <span className={`text-[10px] ${activeTab === 'now' ? 'font-semibold text-amber-600' : 'text-gray-400'}`}>Now</span>
-      </div>
-      <div className="flex flex-col items-center gap-0.5">
-        {/* Circles with dashes - settings/equalizer style */}
-        <svg className={`h-5 w-5 ${activeTab === 'actions' ? 'text-amber-500' : 'text-gray-400'}`} viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
-          <circle cx="6" cy="6" r="2" />
-          <line x1="11" y1="5" x2="15" y2="5" />
-          <line x1="11" y1="7" x2="18" y2="7" />
-          <circle cx="6" cy="12" r="2" />
-          <line x1="11" y1="11" x2="18" y2="11" />
-          <line x1="11" y1="13" x2="14" y2="13" />
-          <circle cx="6" cy="18" r="2" />
-          <line x1="11" y1="17" x2="16" y2="17" />
-          <line x1="11" y1="19" x2="18" y2="19" />
+        <svg className={`h-5 w-5 ${activeTab === 'actions' ? 'text-amber-500' : 'text-gray-400'}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <line x1="4" y1="6" x2="8" y2="6" />
+          <circle cx="12" cy="6" r="2" fill="currentColor" />
+          <line x1="16" y1="6" x2="20" y2="6" />
+          <line x1="4" y1="12" x2="14" y2="12" />
+          <circle cx="18" cy="12" r="2" fill="currentColor" />
+          <line x1="4" y1="18" x2="10" y2="18" />
+          <circle cx="14" cy="18" r="2" fill="currentColor" />
+          <line x1="18" y1="18" x2="20" y2="18" />
         </svg>
         <span className={`text-[10px] ${activeTab === 'actions' ? 'font-semibold text-amber-600' : 'text-gray-400'}`}>Actions</span>
       </div>
+
+      {/* Centered FAB */}
+      <div className="-mt-6 flex h-12 w-12 items-center justify-center rounded-full bg-orange-500 text-white shadow-lg">
+        <Plus className="h-6 w-6" strokeWidth={2.5} />
+      </div>
+
+      {/* Memory tab */}
       <div className="flex flex-col items-center gap-0.5">
-        {/* Brain squiggle */}
         <svg className={`h-5 w-5 ${activeTab === 'memory' ? 'text-amber-500' : 'text-gray-400'}`} viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6 8C6 6 8 4 10 5C12 6 11 9 13 9C15 9 14 6 16 5C18 4 20 6 20 8C20 10 18 11 16 11C14 11 14 13 16 14C18 15 20 14 20 17C20 20 17 21 15 20C13 19 13 16 11 16C9 16 9 19 7 20C5 21 3 19 4 17C5 15 7 15 8 13C9 11 7 11 5 11C3 11 3 9 6 8Z" />
+          <path d="M12 2C8 2 5 5 5 9C5 11 6 13 7 14C8 15 9 17 9 19V21H15V19C15 17 16 15 17 14C18 13 19 11 19 9C19 5 16 2 12 2Z" opacity="0.3" />
+          <path d="M9 21V22C9 22.5 9.5 23 10 23H14C14.5 23 15 22.5 15 22V21" stroke="currentColor" strokeWidth="1.5" fill="none" />
+          <path d="M12 2C8 2 5 5 5 9C5 11 6 13 7 14C8 15 9 17 9 19H15C15 17 16 15 17 14C18 13 19 11 19 9C19 5 16 2 12 2Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
+          <circle cx="10" cy="8" r="1" />
+          <circle cx="14" cy="8" r="1" />
+          <path d="M9 12C10 13 14 13 15 12" stroke="currentColor" strokeWidth="1" fill="none" strokeLinecap="round" />
         </svg>
         <span className={`text-[10px] ${activeTab === 'memory' ? 'font-semibold text-amber-600' : 'text-gray-400'}`}>Memory</span>
       </div>
@@ -413,13 +437,15 @@ function NotificationScreen({ message, task }: { message: string; task: string }
 function NowTabBackground({ task }: { task: string }) {
   return (
     <div className="flex h-full flex-col bg-[#FAF7F2] px-3 pt-2">
-      <div className="mb-3">
-        <h2 className="text-lg font-bold text-gray-900">Good morning</h2>
-        <p className="text-xs text-gray-400">Sunday, December 28</p>
+      <div className="mb-1 flex items-center justify-between">
+        <p className="text-xs text-gray-500">Saturday, Jan 3</p>
+        <Settings className="h-4 w-4 text-gray-400" />
       </div>
+      <h2 className="mb-3 text-lg font-bold text-gray-900">Hey there <span className="text-amber-400">✨</span></h2>
       <div className="mb-2 flex items-center gap-1.5">
-        <Sparkles className="h-4 w-4 text-amber-500" />
-        <span className="text-xs font-semibold text-gray-700">Now</span>
+        <span className="h-2 w-2 rounded-full bg-red-500" />
+        <span className="text-xs font-semibold text-gray-700">NOW</span>
+        <span className="text-xs text-gray-400">(3)</span>
       </div>
       <div className="mb-2 rounded-xl bg-white p-3 shadow-sm">
         <p className="text-sm font-medium text-gray-900">{task}</p>
@@ -560,16 +586,6 @@ function MemoryTabScreen({ newEntry, storyNumber }: { newEntry: string; storyNum
         <p className="mb-1.5 text-[10px] text-gray-400">1d ago</p>
         <div className="flex gap-1">
           <span className="rounded bg-gray-100 px-1.5 py-0.5 text-[10px] text-gray-600">Personal</span>
-        </div>
-      </div>
-
-      {/* FABs - right aligned */}
-      <div className="absolute bottom-20 right-3 flex flex-col items-end gap-2">
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-white shadow-lg">
-          <span className="text-lg font-semibold">?</span>
-        </div>
-        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-500 text-white shadow-lg">
-          <Plus className="h-5 w-5" strokeWidth={2.5} />
         </div>
       </div>
 
