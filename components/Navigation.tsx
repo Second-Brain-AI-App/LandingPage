@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
@@ -49,14 +50,21 @@ export function Navigation() {
         <nav className="flex h-16 items-center justify-between px-6 text-sm font-medium text-gray-600 md:h-18">
           <Link
             href="#top"
-            className="text-lg font-semibold text-gray-900"
+            className="flex items-center gap-2"
             aria-label="Go to top"
             onClick={(event) => {
               event.preventDefault()
               smoothScroll('#top')
             }}
           >
-            {nav.logo}
+            <Image
+              src="/app-icon.png"
+              alt="Second Brain"
+              width={36}
+              height={36}
+              className="rounded-lg"
+            />
+            <span className="text-lg font-semibold text-gray-900">{nav.logo}</span>
           </Link>
           <div className="hidden items-center gap-8 md:flex">
             {nav.links.map((link) => (

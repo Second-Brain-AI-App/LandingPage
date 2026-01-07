@@ -9,7 +9,7 @@ export const landingContent = {
   nav: {
     logo: 'Second Brain',
     ctaLabel: 'Join Beta',
-    ctaHref: 'https://testflight.apple.com/join/secondbrain',
+    ctaHref: 'https://testflight.apple.com/join/qzpcrD9A',
     links: [
       { label: 'How it Works', href: '#how-it-works' },
       { label: 'Features', href: '#capture' },
@@ -19,9 +19,10 @@ export const landingContent = {
   },
   hero: {
     label: 'FOR BUSY BRAINS',
+    communityBadge: 'Built with the ADHD community',
     headline: ['Dump your thoughts.', "We'll sort them out."],
     subheadline: 'Capture by voice. Get reminded at the right time. Ask in plain English. No organizing required.',
-    primaryCta: { label: 'Join the Beta', href: 'https://testflight.apple.com/join/secondbrain' },
+    primaryCta: { label: 'Join the Beta', href: 'https://testflight.apple.com/join/qzpcrD9A' },
     secondaryCta: { label: 'See how it works', href: '#how-it-works' },
     phones: {
       capture: {
@@ -282,7 +283,7 @@ export const landingContent = {
     accent: 'never forget again?',
     subtext: 'Join the beta. Your second brain is waiting.',
     ctaLabel: 'Join the Beta',
-    ctaHref: 'https://testflight.apple.com/join/secondbrain',
+    ctaHref: 'https://testflight.apple.com/join/qzpcrD9A',
     helper: 'Free during beta, no credit card required',
   },
   footer: {

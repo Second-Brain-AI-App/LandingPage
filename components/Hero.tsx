@@ -32,6 +32,14 @@ export function Hero() {
           >
             {hero.label}
           </motion.p>
+          <motion.p
+            className="text-sm text-amber-600/80"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
+          >
+            {hero.communityBadge}
+          </motion.p>
           <div className="space-y-2">
             {hero.headline.map((line, index) => (
               <motion.h1
