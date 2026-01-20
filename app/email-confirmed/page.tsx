@@ -1,6 +1,5 @@
 'use client'
 
-import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 const APP_DEEP_LINK = 'app.secondbrainai.secondbrainapp://email-confirmed'
@@ -26,24 +25,15 @@ export default function EmailConfirmed() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-primary-50 via-white to-secondary-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-orange-50 flex items-center justify-center px-4">
       <div className="max-w-lg w-full">
         {/* Main Card */}
         <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12 text-center border border-gray-100">
-          {/* Logo with subtle background */}
-          <div className="flex justify-center mb-8">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-200 to-secondary-200 rounded-2xl blur-xl opacity-30"></div>
-              <div className="relative bg-gradient-to-br from-gray-800 to-gray-900 p-4 rounded-2xl">
-                <Image
-                  src="/logo.png"
-                  alt="2nd Brain Logo"
-                  width={80}
-                  height={80}
-                  className="relative z-10"
-                />
-              </div>
-            </div>
+          {/* Logo Text */}
+          <div className="flex justify-center mb-6">
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">
+              2nd Brain
+            </h2>
           </div>
 
           {/* Success Icon */}
@@ -75,7 +65,7 @@ export default function EmailConfirmed() {
           </p>
 
           {/* Description */}
-          <div className="bg-gradient-to-br from-primary-50 to-secondary-50 rounded-2xl p-6 mb-8">
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl p-6 mb-8">
             <p className="text-gray-700">
               {showFallback
                 ? "Tap the button below to open the app and start capturing."
@@ -87,7 +77,7 @@ export default function EmailConfirmed() {
           {/* CTA Button - Deep link to iOS app */}
           <a
             href={APP_DEEP_LINK}
-            className="inline-block bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+            className="inline-block bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-semibold px-10 py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
             Open 2nd Brain
           </a>
