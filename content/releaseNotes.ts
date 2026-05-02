@@ -66,19 +66,10 @@ export const releases: Release[] = [
           'Lockscreen widget no longer crams content at smaller sizes. Thanks reddit user broccoliqueen_72.',
         ],
       },
-      {
-        type: 'technical',
-        items: [
-          'Edge Functions reject anonymous traffic at the function level (defense-in-depth, independent of platform JWT verification).',
-          'Added regression tests for sort logic, escalation chains, effort icons, reminders state machine, the inline-correction reschedule contract, the type-toggle reschedule contract, the daily reminder reset contract, the daily-reminder identifier-scoping contract, and the Edge Function auth guard (58 tests, all green).',
-          'Refactored sort-rank logic into enum extensions and detail-sheet view-mode selection into a pure static function for testability and reuse.',
-          'Replaced UIKit dependencies in animation paths with the SwiftUI `@Environment(\\.accessibilityReduceMotion)` value.',
-        ],
-      },
     ],
   },
   {
-    version: 'v0.6.0',
+    version: 'v0.1.0',
     date: 'December 27, 2025',
     headline: 'The marketing site goes live, hand-built end to end.',
     groups: [
