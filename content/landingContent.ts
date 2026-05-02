@@ -239,7 +239,7 @@ export const landingContent = {
       {
         question: 'Is my data private?',
         answer:
-          "Yes. Your data stays private. We don't sell your information. Your second brain is yours alone.",
+          "Absolutely. We never store your data on our servers. Your voice and text pass through to OpenAI for processing, and all raw data and results are stored locally on your iPhone. Nothing is persisted on our end. Your second brain is truly yours alone.",
       },
       {
         question: 'Is this just another todo app?',
@@ -289,6 +289,7 @@ export const landingContent = {
   footer: {
     logo: 'Second Brain',
     links: [
+      { label: 'Changelog', href: '/changelog' },
       { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '/terms' },
       { label: 'Contact', href: 'mailto:hello@secondbrain.app' },
