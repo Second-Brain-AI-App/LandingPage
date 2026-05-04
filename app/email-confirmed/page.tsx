@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react'
 
-const APP_DEEP_LINK = 'app.secondbrainai.secondbrainapp://email-confirmed'
+const APP_DEEP_LINK = 'secondbrain://email-confirmed'
 
 export default function EmailConfirmed() {
   const [showFallback, setShowFallback] = useState(false)
